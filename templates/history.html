@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase History</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f4f8;
+            padding: 40px;
+        }
+
+        .history-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0077cc;
+            margin-bottom: 30px;
+        }
+
+        .order-block {
+            margin-bottom: 40px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .order-details {
+            margin-bottom: 20px;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background-color: #fafafa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .book-card img {
+            width: 100px;
+            height: 140px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .book-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .book-info {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="history-container">
+        <h2>📚 Your Purchase History</h2>
+        {% if history %}
+            {% for order in history %}
+                <div class="order-block">
+                    <div class="order-details">
+                        <p><strong>Email:</strong> {{ order.user.email }}</p>
+                        <p><strong>Address:</strong> {{ order.address }}</p>
+                        <p><strong>Mobile:</strong> {{ order.mobile }}</p>
+                    </div>
+                    <div class="book-grid">
+                        {% for book in order.books %}
+                            {% set book_obj = books_lookup[book.name] %}
+                            <div class="book-card">
+                                <img src="{{ url_for('static', filename='images/' ~ book_obj.image) }}" alt="Book Image">
+                                <div class="book-title">{{ book.name }}</div>
+                                <div class="book-info">Price: RS{{ book.price }}</div>
+                                <div class="book-info">Quantity: {{ book.quantity }}</div>
+                                <div class="book-info">Total: RS{{ book.price * book.quantity }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No past orders found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

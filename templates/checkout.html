@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            width: 350px;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #0077cc;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #0077cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #0077cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Shipping Information</h2>
+<form action="{{ url_for('checkout') }}" method="POST">
+
+    <!-- Display user email (non-editable) -->
+    <label>Email:</label>
+    <input type="email" value="{{ user.email }}" disabled>
+
+    <!-- Input for Name -->
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <!-- Input for Address -->
+    <label>Address:</label>
+    <input type="text" name="address" required>
+
+    <!-- Input for Mobile -->
+    <label>Mobile:</label>
+    <input type="text" name="mobile" required>
+
+    <h3>Total Bill: RS{{ total }}</h3>
+
+    <button type="submit">Place Order</button>
+</form>
+
+    </div>
+</body>
+</html>

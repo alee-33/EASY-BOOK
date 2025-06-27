@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e3f2fd;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1565c0;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #1e88e5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #1565c0;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #1565c0;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Add Book</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="iban">IBAN:</label>
+            <input name="iban" id="iban" required>
+
+            <label for="name">Name:</label>
+            <input name="name" id="name" required>
+
+            <label for="author">Author:</label>
+            <input name="author" id="author" required>
+
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" required>
+
+            <label for="image">Image:</label>
+            <input type="file" name="image" id="image">
+
+            <button type="submit">Add Book</button>
+        </form>
+
+        <a class="back-link" href="{{ url_for('admin_dashboard') }}">← Back to Dashboard</a>
+    </div>
+
+</body>
+
+</html>

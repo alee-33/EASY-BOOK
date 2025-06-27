@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #e0f2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .dashboard-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 380px;
+        }
+
+        h2 {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-box">
+        <h2>Welcome, Admin: {{ admin_email }}</h2>
+
+        <div class="btn-container">
+            <a href="{{ url_for('add_book') }}" class="btn">➕ Add a Book</a>
+            <a href="{{ url_for('delete_book') }}" class="btn">🗑️ Delete Book by IBAN</a>
+            <a href="{{ url_for('update_book') }}" class="btn">✏️ Update Book by IBAN</a>
+            <a href="{{ url_for('show_books_admin') }}" class="btn">📚 Show All Available Books</a>
+            <a href="{{ url_for('admin_view_history') }}" class="btn">📜 View Sold History</a>
+        </div>
+    </div>
+</body>
+
+</html>

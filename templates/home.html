@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EASY BOOK</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+    }
+
+    .hero {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left {
+      flex: 1;
+      background: linear-gradient(to bottom right, #0077cc, #005fa3);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 10%;
+    }
+
+    .left h1 {
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .left p {
+      font-size: 24px;
+      /* increased paragraph size */
+      max-width: 600px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .buttons a {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: white;
+      color: #0077cc;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background-color: #e2eefd;
+    }
+
+    .right {
+      flex: 1;
+      background-color: #f4faff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      /* prevent scroll */
+    }
+
+    .right img {
+      max-height: 90%;
+      max-width: 90%;
+      height: auto;
+      width: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .admin-links {
+      position: fixed;
+      bottom: 0;
+      
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      background-color: white;
+      padding: 10px 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .admin-links a {
+      color: #005fa3;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    .admin-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+
+      .left,
+      .right {
+        flex: none;
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .left {
+        padding-left: 0;
+      }
+
+      .right img {
+        max-width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero">
+    <div class="left">
+      <h1>Welcome to <br />EASY BOOK</h1>
+      <p>Discover thousands of books from your favorite authors. Find your next great read with our easy-to-use online
+        bookstore.</p>
+      <div class="buttons">
+        <a href="/login">Login</a>
+        <a href="/signup">Sign Up</a>
+      </div>
+    </div>
+    <div class="right">
+      <img src="{{ url_for('static', filename='images/bookshelf.png') }}" alt="Bookshelf">
+    </div>
+  </div>
+
+  <div class="admin-links">
+    <a href="/admin/login">Admin Login</a>
+    <a href="/admin/signup">Admin Sign Up</a>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 360px;
+        }
+
+        h1 {
+            color: #0077cc;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #0077cc;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome Admin</h1>
+        <ul>
+            <li><a href="/admin/add-book">Add Book</a></li>
+            <li><a href="/admin/delete-book">Delete Book</a></li>
+            <li><a href="/admin/update-book">Update Book</a></li>
+            <li><a href="/admin/show-books">Show All Books</a></li>
+        </ul>
+    </div>
+</body>
+</html>

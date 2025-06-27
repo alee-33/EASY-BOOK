@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f2fc; /* light blue background */
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #0056b3;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Update Book by IBAN</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label>IBAN:</label>
+            <input type="text" name="iban" required>
+
+            <label>New Name:</label>
+            <input type="text" name="name">
+
+            <label>New Author:</label>
+            <input type="text" name="author">
+
+            <label>New Price:</label>
+            <input type="number" name="price">
+
+            <label>New Quantity:</label>
+            <input type="number" name="quantity">
+
+            <label>New Image:</label>
+            <input type="file" name="image"><br>
+
+            <button type="submit">Update Book</button>
+        </form>
+
+        <a href="{{ url_for('admin_dashboard') }}">← Back to Dashboard</a>
+    </div>
+</body>
+</html>
